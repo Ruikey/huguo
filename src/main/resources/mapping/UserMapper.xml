@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huguo.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.huguo.entity.User" >
+    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="INTEGER" />
+    <result column="wxopenid" property="wxopenid" jdbcType="VARCHAR" />
+    <result column="wxnickname" property="wxnickname" jdbcType="VARCHAR" />
+    <result column="protrait" property="protrait" jdbcType="VARCHAR" />
+    <result column="protraiturl" property="protraiturl" jdbcType="VARCHAR" />
+    <result column="phonenum" property="phonenum" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="CHAR" />
+    <result column="dr" property="dr" jdbcType="INTEGER" />
+    <result column="ts" property="ts" jdbcType="CHAR" />
+  </resultMap>
+  <!--<sql id="Base_Column_List" >
+    userid, code, wxopenid, wxnickname, protrait, protraiturl, phonenum, account, password, createtime,
+    dr, ts
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+  &lt;!&ndash; 这个方法是我自己加的 &ndash;&gt;
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huguo.entity.User" >
+    insert into user (
+      userid, code, wxopenid,
+      wxnickname, protrait, protraiturl,
+      phonenum, account, password,
+      createtime, dr, ts)
+    values (#{userid,jdbcType=VARCHAR}, #{code,jdbcType=INTEGER}, #{wxopenid,jdbcType=VARCHAR}, 
+      #{wxnickname,jdbcType=VARCHAR}, #{protrait,jdbcType=VARCHAR}, #{protraiturl,jdbcType=VARCHAR}, 
+      #{phonenum,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{createtime,jdbcType=CHAR}, #{dr,jdbcType=INTEGER}, #{ts,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huguo.entity.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="wxopenid != null" >
+        wxopenid,
+      </if>
+      <if test="wxnickname != null" >
+        wxnickname,
+      </if>
+      <if test="protrait != null" >
+        protrait,
+      </if>
+      <if test="protraiturl != null" >
+        protraiturl,
+      </if>
+      <if test="phonenum != null" >
+        phonenum,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="dr != null" >
+        dr,
+      </if>
+      <if test="ts != null" >
+        ts,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="wxopenid != null" >
+        #{wxopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxnickname != null" >
+        #{wxnickname,jdbcType=VARCHAR},
+      </if>
+      <if test="protrait != null" >
+        #{protrait,jdbcType=VARCHAR},
+      </if>
+      <if test="protraiturl != null" >
+        #{protraiturl,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenum != null" >
+        #{phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=CHAR},
+      </if>
+      <if test="dr != null" >
+        #{dr,jdbcType=INTEGER},
+      </if>
+      <if test="ts != null" >
+        #{ts,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huguo.entity.User" >
+    update user
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=INTEGER},
+      </if>
+      <if test="wxopenid != null" >
+        wxopenid = #{wxopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxnickname != null" >
+        wxnickname = #{wxnickname,jdbcType=VARCHAR},
+      </if>
+      <if test="protrait != null" >
+        protrait = #{protrait,jdbcType=VARCHAR},
+      </if>
+      <if test="protraiturl != null" >
+        protraiturl = #{protraiturl,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenum != null" >
+        phonenum = #{phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=CHAR},
+      </if>
+      <if test="dr != null" >
+        dr = #{dr,jdbcType=INTEGER},
+      </if>
+      <if test="ts != null" >
+        ts = #{ts,jdbcType=CHAR},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huguo.entity.User" >
+    update user
+    set code = #{code,jdbcType=INTEGER},
+      wxopenid = #{wxopenid,jdbcType=VARCHAR},
+      wxnickname = #{wxnickname,jdbcType=VARCHAR},
+      protrait = #{protrait,jdbcType=VARCHAR},
+      protraiturl = #{protraiturl,jdbcType=VARCHAR},
+      phonenum = #{phonenum,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=CHAR},
+      dr = #{dr,jdbcType=INTEGER},
+      ts = #{ts,jdbcType=CHAR}
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>-->
+</mapper>
